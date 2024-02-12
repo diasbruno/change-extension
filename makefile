@@ -2,14 +2,21 @@
 
 CC?=clang
 
-change-extension: change-extension.c
+DEST=/usr/local/bin
+
+PROJECT=change-extension
+
+$(PROJECT): $(PROJECT).c
 	$(CC) -g -o $@ $<
 
-tests: clean change-extension
+tests: clean $(PROJECT)
 	bash test.bash
 
 clean:
-	rm -rf change-extension
+	rm -rf $(PROJECT)
+
+install:
+	install -m0555 $(PROJECT) $(DEST)
 
 .PHONY: all
 all: tests
