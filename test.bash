@@ -65,6 +65,15 @@ function dont_allow_dot_at_the_end() {
     fi
 }
 
+function dont_allow_dot_at_the_beginning() {
+    echo "test dont allow dot at the beginning";
+    ./change-extension "sh" ".bash"
+    local ret=$?
+    if [ "$ret" != "1" ]; then
+        echo "failed! expected return to be 1.";
+    fi
+}
+
 missing_arguments
 single_arguments
 empty_arguments
@@ -72,3 +81,4 @@ change_bash_extension
 dont_allow_empty_extension
 dont_allow_empty_filename
 dont_allow_dot_at_the_end
+dont_allow_dot_at_the_beginning

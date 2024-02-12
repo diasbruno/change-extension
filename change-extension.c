@@ -24,7 +24,7 @@ int main(int count, char* args[]) {
 
   size_t dot_position = pos - file;
 
-  if ((pos - file) == (length_of_file_name - 1)) {
+  if (dot_position == 0 || dot_position == (length_of_file_name - 1)) {
     goto quit;
   }
 
