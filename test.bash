@@ -74,6 +74,16 @@ function dont_allow_dot_at_the_beginning() {
     fi
 }
 
+function dont_allow_dot_on_the_new_extension() {
+    echo "test dont allow dot on the new extension";
+    ./change-extension "s.h" "t.bash"
+    local ret=$?
+    if [ "$ret" != "1" ]; then
+        echo "failed! expected return to be 1.";
+    fi
+}
+
+
 missing_arguments
 single_arguments
 empty_arguments
@@ -82,3 +92,4 @@ dont_allow_empty_extension
 dont_allow_empty_filename
 dont_allow_dot_at_the_end
 dont_allow_dot_at_the_beginning
+dont_allow_dot_on_the_new_extension

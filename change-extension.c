@@ -8,7 +8,7 @@ int main(int count, char* args[]) {
   }
 
   const char* const extension = args[1];
-  if (extension == 0 || strlen(extension) == 0) {
+  if (extension == 0 || strlen(extension) == 0 || strchr(extension, '.') > 0) {
     goto quit;
   }
 
