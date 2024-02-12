@@ -19,5 +19,16 @@ function single_arguments() {
         echo "failed! expected return to be 1.";
     fi
 }
+
+function empty_arguments() {
+    echo "test empty arguments";
+    ./change-extension "" ""
+    local ret=$?
+    if [ "$ret" != "1" ]; then
+        echo "failed! expected return to be 1.";
+    fi
+}
+
 missing_arguments
 single_arguments
+empty_arguments
