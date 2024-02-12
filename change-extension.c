@@ -37,7 +37,7 @@ int main(int count, char* args[]) {
   new_file[pos - file] = '.';
   memcpy(new_file + (1 + dot_position), extension, length_of_extension_name);
 
-  printf("%s", new_file);
+  fwrite(new_file, sizeof(char), strlen(new_file), stdout);
 
   return 0;
 
