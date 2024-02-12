@@ -3,7 +3,7 @@
 CC?=clang
 
 change-extension: change-extension.c
-	$(CC) -o $@ $<
+	$(CC) -g -o $@ $<
 
 tests: clean change-extension
 	bash test.bash
