@@ -56,9 +56,19 @@ function dont_allow_empty_filename() {
     fi
 }
 
+function dont_allow_dot_at_the_end() {
+    echo "test dont allow dot at the end";
+    ./change-extension "sh" "t."
+    local ret=$?
+    if [ "$ret" != "1" ]; then
+        echo "failed! expected return to be 1.";
+    fi
+}
+
 missing_arguments
 single_arguments
 empty_arguments
 change_bash_extension
 dont_allow_empty_extension
 dont_allow_empty_filename
+dont_allow_dot_at_the_end

@@ -26,6 +26,12 @@ int main(int count, char* args[]) {
   const char* pos = strrchr(file, '.');
 
   size_t dot_position = pos - file;
+
+  if ((pos - file) == (length_of_file_name - 1)) {
+    exit(1);
+    return 1;
+  }
+
   size_t length = dot_position
     + 1 /* dot */
     + length_of_extension_name
