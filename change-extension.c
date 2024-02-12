@@ -4,20 +4,17 @@
 
 int main(int count, char* args[]) {
   if (count != 3) {
-      exit(1);
-      return 1;
+    goto quit;
   }
 
   const char* const extension = args[1];
   if (extension == 0 || strlen(extension) == 0) {
-    exit(1);
-    return 1;
+    goto quit;
   }
 
   const char* const file = args[2];
   if (file == 0 || strlen(file) == 0) {
-    exit(1);
-    return 1;
+    goto quit;
   }
 
   size_t length_of_extension_name = strlen(extension);
@@ -28,8 +25,7 @@ int main(int count, char* args[]) {
   size_t dot_position = pos - file;
 
   if ((pos - file) == (length_of_file_name - 1)) {
-    exit(1);
-    return 1;
+    goto quit;
   }
 
   size_t length = dot_position
@@ -44,4 +40,8 @@ int main(int count, char* args[]) {
   printf("%s", new_file);
 
   return 0;
+
+ quit:
+    exit(1);
+    return 1;
 }
